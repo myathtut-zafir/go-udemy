@@ -11,7 +11,9 @@ type user struct {
 	birthdate string
 	createdAt time.Time
 }
-
+func (appUser user)printUserDetail() {
+	fmt.Println(appUser.createdAt,appUser.firstName)
+}
 func main() {
 	firstName := getUserData("Please enter your first name: ")
 	lastName := getUserData("Please enter your last name: ")
@@ -24,8 +26,9 @@ func main() {
 		birthdate: birthdate,
 		createdAt: time.Now(),
 	}
+	appUser.printUserDetail()
 	// printUser(appUser)
-	printUserPointer(&appUser)
+	// printUserPointer(&appUser)
 
 	// ... do something awesome with that gathered data!
 
