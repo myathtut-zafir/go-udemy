@@ -3,13 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"go/types"
 	"os"
 	"strings"
-
 	"github.com/pointers/note"
 	"github.com/pointers/todo"
-	"golang.org/x/text/cases"
 )
 
 type saver interface {
