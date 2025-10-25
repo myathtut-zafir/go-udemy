@@ -47,16 +47,22 @@ func output(data outputter) {
 }
 
 func printSomethings(value interface{}) {
-	switch value.(type){
-		case string:
-			fmt.Println("This is a string")
-		case int:
-			fmt.Println("This is an integer")
-		case bool:
-			fmt.Println("This is a boolean")
-		default:
-			fmt.Println("Unknown type")
+	intVal, ok := value.(int)
+	if ok {
+		intVal++
+		fmt.Println("This is an integer:", intVal)
+		return
 	}
+	// switch value.(type){
+	// 	case string:
+	// 		fmt.Println("This is a string")
+	// 	case int:
+	// 		fmt.Println("This is an integer")
+	// 	case bool:
+	// 		fmt.Println("This is a boolean")
+	// 	default:
+	// 		fmt.Println("Unknown type")
+	// }
 	fmt.Println(value)
 }
 
