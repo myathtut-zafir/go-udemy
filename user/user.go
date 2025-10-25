@@ -14,7 +14,7 @@ type User struct {
 }
 type Admin struct {
 	email string
-	User  User
+	User
 }
 
 func (appUser User) PrintUserDetail() {
