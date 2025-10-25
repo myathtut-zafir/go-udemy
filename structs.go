@@ -10,7 +10,7 @@ type customString string
 func (text customString) log() {
 	fmt.Println(text)
 }
-func main() {
+func main3() {
 	var name customString
 	name = "Myat Htut"
 	name.log()
