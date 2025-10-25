@@ -18,6 +18,9 @@ func main() {
 	// 	createdAt: time.Now(),
 	// }
 	appUser, error := user.New(firstName, lastName, birthdate)
+	adminUser := user.NewAdmin("tt@gmail.com")
+	adminUser.User.PrintUserDetail()
+
 	if error != nil {
 		fmt.Println("Error creating user:", error)
 		return
