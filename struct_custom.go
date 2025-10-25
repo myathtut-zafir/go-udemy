@@ -3,10 +3,13 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/pointers/note"
-	"github.com/pointers/todo"
+	"go/types"
 	"os"
 	"strings"
+
+	"github.com/pointers/note"
+	"github.com/pointers/todo"
+	"golang.org/x/text/cases"
 )
 
 type saver interface {
@@ -19,6 +22,7 @@ type outputter interface {
 }
 
 func main() {
+	printSomethings("hi")
 	title := getUserInput("Enter your title: ")
 	desc := getUserInput("Enter your desc: ")
 	todoText := getUserInput("Enter your todo: ")
@@ -42,8 +46,19 @@ func output(data outputter) {
 	data.DisplayNote()
 }
 
-
-
+func printSomethings(value interface{}) {
+	switch value.(type){
+		case string:
+			fmt.Println("This is a string")
+		case int:
+			fmt.Println("This is an integer")
+		case bool:
+			fmt.Println("This is a boolean")
+		default:
+			fmt.Println("Unknown type")
+	}
+	fmt.Println(value)
+}
 
 func getUserInput(prompt string) string {
 	fmt.Printf("%v ", prompt)
