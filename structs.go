@@ -5,7 +5,16 @@ import (
 	"github.com/pointers/user"
 )
 
+type customString string
+
+func (text customString) log() {
+	fmt.Println(text)
+}
 func main() {
+	var name customString
+	name = "Myat Htut"
+	name.log()
+
 	firstName := getUserData("Please enter your first name: ")
 	lastName := getUserData("Please enter your last name: ")
 	birthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
