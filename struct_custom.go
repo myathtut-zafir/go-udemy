@@ -3,10 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"os"
-	"strings"
 	"github.com/pointers/note"
 	"github.com/pointers/todo"
+	"os"
+	"strings"
 )
 
 type saver interface {
@@ -18,8 +18,14 @@ type outputter interface {
 	DisplayNote()
 }
 
+func add[T int | float64 | string](a, b T) T {
+	return a + b
+}
 func main() {
+
 	printSomethings("hi")
+	result:= add(10, 20)
+	fmt.Println(result)
 	title := getUserInput("Enter your title: ")
 	desc := getUserInput("Enter your desc: ")
 	todoText := getUserInput("Enter your todo: ")
