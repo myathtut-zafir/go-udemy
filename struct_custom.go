@@ -11,6 +11,10 @@ import (
 
 type saver interface {
 	Save() error
+}
+
+type outputter interface {
+	saver
 	DisplayNote()
 }
 
@@ -20,18 +24,26 @@ func main() {
 	todoText := getUserInput("Enter your todo: ")
 
 	todo := todo.New(todoText)
-	todo.DisplayNote()
+	// todo.DisplayNote()
 	// todo.Save()
 	saveData(todo)
+	output(todo)
 
 	note := note.New(title, desc)
-	note.DisplayNote()
+	// note.DisplayNote()
 	// note.Save()
 	saveData(note)
+	output(note)
 }
-func saveData(data saver) {
+func saveData(data outputter) {
 	data.Save()
 }
+func output(data outputter) {
+	data.DisplayNote()
+}
+
+
+
 
 func getUserInput(prompt string) string {
 	fmt.Printf("%v ", prompt)
